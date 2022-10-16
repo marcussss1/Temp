@@ -1,0 +1,31 @@
+{% load static %}
+
+<div class="question">
+    <div class="row">
+        <div class="col-3">
+            <img class="avatar" style="width: 140px; height: 140px;" src="{% static "img/abc.jpg" %}" alt="">
+        </div>
+        <div class="col-9">
+            <h1> {{ question.title }}</h1>
+            {{ question.text }}
+            <div>
+                Tags: &nbsp;&nbsp;&nbsp;
+                {% for i in question.counting_tags %}
+                    <a href="/tags/{{ question.tags }}"> {{ question.tags }} </a> &nbsp;&nbsp;
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<div style="border: 2px solid gray; margin-bottom: 25px"></div>
+{% for i in question.counting_answers %}
+    {% include "inc/answer.html" %}
+{% endfor %}
+<div style="border: 2px solid gray; margin-bottom: 25px"></div>
+<form>
+    <div class="form-group">
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+</form>
+<button type="submit" class="btn btn-primary">Answer!</button>
+
