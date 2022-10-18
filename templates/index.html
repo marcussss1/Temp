@@ -3,9 +3,12 @@
 
 {% block content %}
     <h1 style="margin-bottom: 20px;">Questions</h1>
-    {% for question in questions %}
+    {% for question in objects_questions %}
         {% include "inc/question.html" %}
     {% endfor %}
+{#    {% for question in questions %}#}
+{#        {% include "inc/question.html" %}#}
+{#    {% endfor %}#}
 {% endblock content %}
 {#{% for p in paginator.page_range %}#}
 {#		{% if page_obj.number == p %}#}

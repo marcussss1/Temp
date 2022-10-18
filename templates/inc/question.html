@@ -1,3 +1,31 @@
+{#{% load static %}#}
+{##}
+{#<div class="question">#}
+{#    <div class="row">#}
+{#        <div class="col-2">#}
+{#            <div class="avatar">#}
+{#                <img src="{% static "img/abc.jpg" %}" alt="">#}
+{#            </div>#}
+{#        </div>#}
+{#        <div class="col-8">#}
+{#            {% if request.path == "/" %}#}
+{#                <a href="/question/{{ question.number }}"><h3>{{ question.title }}</h3></a>#}
+{#            {% endif %}#}
+{#            {% if request.path != "/" %}#}
+{#                <h3>{{ question.title }}</h3>#}
+{#            {% endif %}#}
+{#            <p>{{ question.text }}</p>#}
+{#            <a style="margin-right: 20px;" href="/question/{{ question.number }}">answers ({{ question.answers }})</a>#}
+{#            Tags:&nbsp;&nbsp;&nbsp;#}
+{#                {% for i in question.counting_tags %}#}
+{#                    {% if request.path != "/tags/{{question.tag_name}}" %}#}
+{#                        <a href="/tags/{{ question.tag_name }}"> {{ question.tag_name }} </a> &nbsp;&nbsp;#}
+{#                    {% endif %}#}
+{#                {% endfor %}#}
+{#        </div>#}
+{#    </div>#}
+{#</div>#}
+
 {% load static %}
 
 <div class="question">
@@ -15,13 +43,41 @@
                 <h3>{{ question.title }}</h3>
             {% endif %}
             <p>{{ question.text }}</p>
-            <a style="margin-right: 20px;" href="/question/{{ question.number }}">answers ({{ question.answers }})</a>
+            <a style="margin-right: 20px; " href="/question/{{ question.number }}">answers ({{ question.answers }})</a>
             Tags:&nbsp;&nbsp;&nbsp;
-                {% for i in question.counting_tags %}
-{#                    {% if request.path != "/tags/{{question.tag_name}}" %}#}
-                        <a href="/tags/{{ question.tag_name }}"> {{ question.tag_name }} </a> &nbsp;&nbsp;
-{#                    {% endif %}#}
-                {% endfor %}
+            {#            {% for field in question.tag_names %}#}
+            {#                <a href="#">1</a> &nbsp;&nbsp;#}
+            {#                {% if field  %}#}
+            {% if question.tag_names.tag1 != '-' %}
+                <a href="/tags/{{ question.number }}">{{ question.tag_names.tag1 }}</a> &nbsp;&nbsp;
+            {% endif %}
+            {% if question.tag_names.tag2 != '-' %}
+                <a href="/tags/{{ question.number }}">{{ question.tag_names.tag2 }}</a> &nbsp;&nbsp;
+            {% endif %}
+            {% if question.tag_names.tag3 != '-' %}
+                <a href="/tags/{{ question.number }}">{{ question.tag_names.tag3 }}</a> &nbsp;&nbsp;
+            {% endif %}
+            {% if question.tag_names.tag4 != '-' %}
+                <a href="/tags/{{ question.number }}">{{ question.tag_names.tag4 }}</a> &nbsp;&nbsp;
+            {% endif %}
+            {% if question.tag_names.tag5 != '-' %}
+                <a href="/tags/{{ question.number }}">{{ question.tag_names.tag5 }}</a> &nbsp;&nbsp;
+            {% endif %}
+
+            {#                {% endif %}#}
+            {#            {% endfor %}#}
+
+            {#        {% for i in "x"|rjust:"100" %}#}
+            {#...#}
+            {#{% endfor %}#}
+            {#            {% for tag in "x"|rjust:question.counting_tags %}#}
+            {#                {#}
+            {#                <a href="/tags/{{ question.tag_names.tag1 }}">{{ question.tag_names.tag1 }}</a> &nbsp;&nbsp;#}
+            {#                <a href="/tags/{{ question.tag_name }}">{{ question.tag_name }}</a> &nbsp;&nbsp;#}
+            {#                <a href="/tags/{{ question.tag_name }}">{{ question.tag_name }}</a> &nbsp;&nbsp;#}
+            {#                <a href="/tags/{{ question.tag_name }}">{{ question.tag_name }}</a> &nbsp;&nbsp;#}
+            {#                <a href="/tags/{{ question.tag_name }}">{{ question.tag_name }}</a> &nbsp;&nbsp;#}
+            {#            {% endfor %}#}
         </div>
     </div>
 </div>
