@@ -15,7 +15,7 @@
                 <h3>{{ question.title }}</h3>
             {% endif %}
             <p>{{ question.text }}</p>
-            <a style="margin-right: 20px;" href="#">answers ({{ question.answers }})</a>
+            <a style="margin-right: 20px;" href="/question/{{ question.number }}">answers ({{ question.answers }})</a>
             Tags:&nbsp;&nbsp;&nbsp;
                 {% for i in question.counting_tags %}
 {#                    {% if request.path != "/tags/{{question.tag_name}}" %}#}

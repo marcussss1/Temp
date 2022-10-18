@@ -7,7 +7,15 @@
         {% include "inc/question.html" %}
     {% endfor %}
 {% endblock content %}
-
+{#{% for p in paginator.page_range %}#}
+{#		{% if page_obj.number == p %}#}
+{#        <li class="page-num page-num-selected">{{ p }}</li>#}
+{#		{% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2  %}#}
+{#        <li class="page-num">#}
+{#            <a href="?page={{ p }}">{{ p }}</a>#}
+{#        </li>#}
+{#		{% endif %}#}
+{#        {% endfor %}#}
 {% block side_panel %}
     {% include "inc/tags.html" %}
     {% include "inc/best_members.html" %}
